@@ -6,12 +6,21 @@ It will replace the hostnames with the ENV variables HOST_FRONT and HOST_BACK
 
 
 
-running with nginx proxy virtual hosts
+running in current directory
+
+    docker run -d \
+        -e HOST_FRONT=frontend.dev \
+        -e HOST_BACK=backend.dev \
+        -v $(pwd):/app:rw \
+        wartron/alpine-php-yii2-advanced
+
+
+running with nginx proxy and a local linked db
 
     docker run -d \
         -e VIRTUAL_HOST=frontend.dev,backend.dev \
         -e HOST_FRONT=frontend.dev \
         -e HOST_BACK=backend.dev \
-        -v /home/will/code/yii-advanced:/app:rw \
+        -v $(pwd):/app:rw \
         --link db:db \
         wartron/alpine-php-yii2-advanced
