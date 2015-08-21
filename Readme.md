@@ -9,6 +9,7 @@ It will replace the hostnames with the ENV variables HOST_FRONT and HOST_BACK
 running in current directory
 
     docker run -d \
+        -p 80:80 \
         -e HOST_FRONT=frontend.dev \
         -e HOST_BACK=backend.dev \
         -v $(pwd):/app:rw \

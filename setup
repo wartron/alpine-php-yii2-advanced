@@ -8,3 +8,4 @@ chown -R nginx:www-data \
 
 sed -i "s/frontend.dev/${HOST_FRONT}/" /etc/nginx/presets/default.conf
 sed -i "s/backend.dev/${HOST_BACK}/" /etc/nginx/presets/default.conf
+sed -i "s/api.dev/${HOST_API}/" /etc/nginx/presets/default.conf
